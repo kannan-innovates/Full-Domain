@@ -7,9 +7,9 @@ const task1 = ()=>{
 }
 
 const task2 = ()=>{
-     return new Promise((resolve)=>{
+     return new Promise((resolve,reject)=>{
           setTimeout(() => {
-               resolve('Task 2 - completed')
+               reject('Task 2 - failed')
           }, 2000);
      })
 }
@@ -33,5 +33,7 @@ task1()
 })
 .then((result)=> {
      console.log(result)
-     console.log('All Tasks Completed')
+    
 })
+.catch((err)=> console.log(err))
+.finally(()=> console.log('All Tasks completed'))
